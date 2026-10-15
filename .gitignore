@@ -1,0 +1,18 @@
+# Diagnostic output from the bundled scripts
+diagnose_powershell.json
+diagnose_python.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Scratch space
+/tmp/
+/out/

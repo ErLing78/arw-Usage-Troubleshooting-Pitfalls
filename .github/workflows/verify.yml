@@ -1,0 +1,45 @@
+name: verify
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  readme:
+    name: README and docs match the code
+    # Windows is required: sh_delete.py drives Win32 through ctypes, and the
+    # recycle bin checks cannot run anywhere else.
+    runs-on: windows-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.8", "3.11", "3.13"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Confirm there is nothing to install
+        run: python -c "import sys; print('interpreter:', sys.version)"
+
+      - name: Check for credentials, personal details and quoted real output
+        # This repository quotes command output from real machines, which is
+        # exactly how account names, host names and recycle bin entries end up
+        # in a public document.
+        run: python tests/test_privacy.py
+
+      - name: Verify every example in the README and docs
+        # This also asserts that all scripts import from the standard library
+        # only, deriving the module list from the running installation so it
+        # works on Python 3.8 as well as 3.10+.
+        run: python tests/readme_examples_test.py
+
+      - name: Compile every script
+        run: python -m compileall -q scripts tests
