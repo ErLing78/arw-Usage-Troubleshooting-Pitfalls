@@ -72,7 +72,7 @@ recycleBinAccess      yes     能否访问回收站目录
 ### 方式一：克隆
 
 ```bash
-git clone https://github.com/ErLing78/awesome-restricted-windows.git
+git clone https://github.com/ErLing78/awesome-restricted-windows-.git
 cd awesome-restricted-windows
 ```
 
@@ -157,7 +157,7 @@ diagnostic written to C:\report.json
 
 ### 示例 2：把 JPEG 转成 PNG（不用装任何库）
 
-需要 [stdpng 的 `tools/image_transcode.ps1`](https://github.com/ErLing78/stdpng/blob/main/tools/image_transcode.ps1)（走 `System.Drawing`，不需要 `Add-Type`）：
+需要 [stdpng 的 `tools/image_transcode.ps1`](https://github.com/ErLing78/-PNG-pngtool-/blob/main/tools/image_transcode.ps1)（走 `System.Drawing`，不需要 `Add-Type`）：
 
 ```powershell
 # 先把脚本读进 scriptblock（绕开 Restricted 策略，见 docs/02）
@@ -298,7 +298,7 @@ $null = [System.Reflection.Assembly]::LoadFrom(
 
 纯标准库解析 PNG 并做缩放 / 量化 / 裁剪；JPEG 等格式走 `System.Drawing`。
 
-→ [docs/03](docs/03-image-processing.md)，完整库见 [stdpng](https://github.com/ErLing78/stdpng)
+→ [docs/03](docs/03-image-processing.md)，完整库见 [stdpng](https://github.com/ErLing78/-PNG-pngtool-)
 
 ### 四、删除与回收站
 

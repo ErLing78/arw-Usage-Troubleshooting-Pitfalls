@@ -23,7 +23,7 @@ PNG 的格式（zlib 压缩 + 逐行滤波）完全可以用标准库实现，�
 | 调色板量化 | 自实现中位切分（median cut） |
 | 编码 | `zlib` + `struct` 拼 chunk |
 
-完整实现见 [stdpng](https://github.com/ErLing78/stdpng)，单文件版本见 [`../scripts/pngtool.py`](../scripts/pngtool.py)。
+完整实现见 [stdpng](https://github.com/ErLing78/-PNG-pngtool-)，单文件版本见 [`../scripts/pngtool.py`](../scripts/pngtool.py)。
 
 ### 性能预期（1024×1024，普通笔记本）
 
@@ -72,7 +72,7 @@ $image.Save('C:\out.png', [System.Drawing.Imaging.ImageFormat]::Png)
 $image.Dispose()
 ```
 
-完整版（含批量、等比缩放、JSON 报告）见 [stdpng 的 image_transcode.ps1](https://github.com/ErLing78/stdpng/blob/main/tools/image_transcode.ps1)。
+完整版（含批量、等比缩放、JSON 报告）见 [stdpng 的 image_transcode.ps1](https://github.com/ErLing78/-PNG-pngtool-/blob/main/tools/image_transcode.ps1)。
 
 ### 实测
 
@@ -149,7 +149,7 @@ python scripts/pngtool.py in.png --ascii 120 --mode min    # 读笔画
 
 | 需求 | 走哪条路 |
 |---|---|
-| 精灵图缩放、调色板量化、裁剪旋转 | 纯标准库（[stdpng](https://github.com/ErLing78/stdpng)） |
+| 精灵图缩放、调色板量化、裁剪旋转 | 纯标准库（[stdpng](https://github.com/ErLing78/-PNG-pngtool-)） |
 | 解码 JPEG / TIFF / GIF | GDI+ via `LoadFrom`，先转 PNG 再处理 |
 | 把图压到体积上限 | 中位切分量化 + 8 位索引 PNG |
 | 像素画缩放 | **最近邻**，绝不用插值 |
