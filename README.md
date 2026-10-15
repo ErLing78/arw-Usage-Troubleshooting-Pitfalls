@@ -72,8 +72,8 @@ recycleBinAccess      yes     能否访问回收站目录
 ### 方式一：克隆
 
 ```bash
-git clone https://github.com/ErLing78/awesome-restricted-windows-.git
-cd awesome-restricted-windows
+git clone https://github.com/ErLing78/arw-Usage-Troubleshooting-Pitfalls.git
+cd arw-Usage-Troubleshooting-Pitfalls
 ```
 
 ### 方式二：只拿你要的那一个脚本
